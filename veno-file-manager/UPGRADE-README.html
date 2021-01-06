@@ -1,0 +1,1550 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Script Upgrade | Veno File Manager</title>
+<!-- <link rel="stylesheet" href="documentation/assets/css/bootstrap.min.css">
+<script type="text/javascript" src="documentation/assets/js/jquery-1.11.1.min.js"></script>
+<script src="documentation/assets/js/bootstrap.min.js"></script> -->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+<style type="text/css">
+/* Side notes for calling out things
+-------------------------------------------------- */
+ img{
+  max-width: 100%;
+ }
+ pre{
+  background-color: #EAEAEA;
+  padding: 1em;
+ }
+/* Base styles (regardless of theme) */
+.bs-callout {
+margin: 20px 0;
+padding: 15px 30px 15px 15px;
+border-left: 5px solid #eee;
+}
+.bs-callout h4 {
+margin-top: 0;
+}
+.bs-callout p:last-child {
+margin-bottom: 0;
+}
+.bs-callout code,
+.bs-callout .highlight {
+background-color: #fff;
+}
+ 
+/* Themes for different contexts */
+.bs-callout-danger {
+background-color: #fcf2f2;
+border-color: #dFb5b4;
+}
+.bs-callout-warning {
+background-color: #fefbed;
+border-color: #f1e7bc;
+}
+.bs-callout-info {
+background-color: #f0f7fd;
+border-color: #d0e3f0;
+}
+.bs-callout-success {
+background-color: #E7FFEF;
+border-color: #CDF2CD;
+}</style>
+</head>
+<body>
+
+<div class="container pt-3">
+<!--   <div class="bs-callout bs-callout-success">
+    <p>For versions prior to 3.4.1 follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions.</p>
+  </div> -->
+<img src="documentation/assets/images/logo1.svg">
+  <div class="row mt-1">
+    <div class="col-md-12">
+      <h3 class="pull-left">Current Version <span class="badge badge-pill badge-success">3.4.7</span></h3><span class="small">23/03/2019</span>
+<pre>
+- Update: focus the empty field when trying to create a new directory
+- Update videojs to v 7.4.1 + custom language</pre>
+
+      <h2>Update VFM 3.4.6 to 3.4.7</h2>
+      <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong>
+    </div>
+  </div>
+  <hr>
+
+  <div class="row" id="generic-upgrade">
+    <div class="col-sm-12">
+        <h2>Generic Upgrade Instructions</h2>
+        <p>This method is valid to update from any version</p>
+    </div>
+<div class="col-sm-5 col-lg-7">
+<ol>
+  <li><p>First of all, backup the whole <code>/vfm-admin/</code> folder</p></li>
+<li>
+<p>Follow this scheme --><br>
+Do <strong>NOT</strong> replace files and folders marked in red <span class="badge badge-pill badge-danger">NO</span><br> 
+Replace all the other files and folders</p>
+</li>
+<li>
+<p>update your general settings from the administration panel after files replacement</p>
+</li>
+</ol>
+      <p>If you have any custom translation, follow the <strong><a href="#translation-update">translation update</a></strong> procedure, otherwise replace all the <code>vfm-admin/translations/</code> folder</p>
+      <p>If you have any custom skin, only replace the default skins, otherwise replace all the <code>vfm-admin/_content/skins/</code> folder</p>
+  </div>
+  <div class="col-sm-7 col-lg-5">
+      <img class="" src="documentation/assets/images/upgrade-instructions.gif">
+  </div>
+</div>
+
+    <div class="row">
+
+      <div class="col-md-12 bs-callout bs-callout-info" id="translation-update">
+
+        <h3>Translations update</h3>
+
+            <p>just replace the corresponding .php files inside of
+            <ul>
+              <li><code>vfm-admin/translations/</code></li>
+            </ul>
+        If you added your personal language which is not provided, you will find new untranslated phrases editing your custom language from the administration panel.<br>
+        If you customized any official translation, only replace <strong>en.php</strong>, you will find new untranslated phrases editing your custom language from the administration panel.</p>
+      </div>
+
+    </div>
+
+<a class="btn btn-info btn-block mb-5" href="http://filemanager.veno.it/logs/" target="_blank">Log history</a>
+
+<div class="row">
+
+    <div class="col-md-12 bs-callout bs-callout-danger">
+      <p><strong>IMPORTANT NOTE:</strong></p>
+      <p>Since version 3.4.4 all the app customisations have been moved inside the new folder <code>/vfm-admin/_content/</code></p>
+<div class="row">
+
+      <div class="col-md-2">
+        <h5>Old /vfm-admin/</h5>
+      </div>
+      <div class="col-md-4">
+        <img class="" src="documentation/assets/images/vfm-admin-old.gif">
+      </div>
+      <div class="col-md-2">
+        <h5>New /vfm-admin/</h5>
+      </div>
+      <div class="col-md-4">
+        <img class="" src="documentation/assets/images/vfm-admin-new.gif">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 bs-callout bs-callout-danger">
+      <p><strong>NOTE: Upgrading from a version prior to 2.7.0</strong></p>
+      <p>Upload the file <code>utilities/_unsensitive-users.php</code> inside <strong>/vfm-admin/</strong>. It will run ony once to update the usernames to case-insensitive.<br>
+      Login to the administration area after the script's upgrade, and save again your settings.</p>
+      <p>If you have some duplicated usernames, like "JohnDoe", "johndoe" and "johnDoe", they will become "JohnDoe" johndoe1" and "johnDoe2".</p>
+      <p>Every user will be notified with an alert after his next login if his username has changed.</p>
+    </div>
+    <div class="col-md-12 bs-callout bs-callout-warning">
+      <p><strong>From version 1.x to version 2.x move the following files:</strong> </p>
+      <ul>
+        <li>from <code>vfm-admin/remember.php</code> to <code>vfm-admin/users/remember.php</code></li>
+        <li>from <code>vfm-admin/token.php</code> to <code>vfm-admin/users/token.php</code></li>
+        <li>from <code>vfm-admin/users.php</code> to <code>vfm-admin/users/users.php</code></li>
+      </ul>
+    </div>
+
+  </div>
+  <hr>
+
+
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <button type="button" class="btn btn-danger btn-block" data-toggle="collapse" data-target="#collasso" aria-expanded="true" aria-controls="demo">
+         Upgrade Older versions <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+<div id="collasso" class="collapse">
+<div class="row">
+
+    <div class="col-md-12">
+      <h2>Update VFM 3.4.5 to 3.4.6</h2>
+      <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong>
+    </div>
+
+    <div class="col-md-12">
+      <h2>Update VFM 3.4.4 to 3.4.5</h2>
+      <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong>
+    </div>
+
+  <div class="col-md-12">
+
+      <h2>Update VFM 3.4.3 to 3.4.4</h2>
+
+    <p>1. Backup all your /vfm-admin/ folder</p>
+
+      <p>2. Move the following folders and their contents:
+        <ul>
+          <li><code>vfm-admin/audio/</code> to <code>vfm-admin/_content/audio/</code></li>
+          <li><code>vfm-admin/images/avatars/</code> to <code>vfm-admin/_content/avatars/</code></li>
+          <li><code>vfm-admin/images/uploads/</code> to <code>vfm-admin/_content/uploads/</code></li>
+          <li><code>vfm-admin/log/</code> to <code>vfm-admin/_content/log/</code></li>
+          <li><code>vfm-admin/mail/template</code> to <code>vfm-admin/_content/mail-template/</code><br>
+            <small>move the folder /template/ inside /_content/ and rename it in <code>mail-template</code></small></li>
+          <li><code>vfm-admin/shorten/</code> to <code>vfm-admin/_content/share/</code><br>
+            <small>move the folder /shorten/ inside /_content/ and rename it in <code>share</code></small></li>
+          <li><code>vfm-admin/skins/</code> to <code>vfm-admin/_content/skins/</code></li>
+          <li><code>vfm-admin/template/</code> to <code>vfm-admin/_content/template/</code></li>
+          <li><code>vfm-admin/thumbs/</code> to <code>vfm-admin/_content/thumbs/</code></li>
+        </ul>
+      </p>
+</div>
+
+  <div class="col-12">
+    <p>3. After the folders update Follow the <strong><a href="#generic-upgrade">generic script upgrade procedure</a></strong></p>
+  </div>
+
+
+
+  <div class="col-md-12">
+      <h2>Update VFM 3.4.2 to 3.4.3</h2>
+      <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong>
+  </div>
+
+<div class="col-md-12">
+
+     <h2>Update VFM 3.4.1 to 3.4.2</h2>
+
+<p>Files to replace:</p>
+<ul>
+  <li><code>/vfm-admin/admin-panel/</code> replace the whole folder</li>
+  <li><code>/vfm-admin/class.php</code></li>
+  <li><code>/vfm-admin/class/</code> replace the whole folder</li>
+  <li><code>/vfm-admin/index.php</code></li>
+  <li><code>/vfm-admin/js/</code> replace the whole folder</li>
+</ul>
+      <p>If you have any custom translation, follow the <strong><a href="#translation-update">translation update</a></strong> procedure, otherwise replace all the <code>vfm-admin/translations/</code> folder</p>
+
+<p>After the upgrade you will find a new Checkbox option under Preferences > Lists: "show hidden files"</p>
+
+</div>
+  <hr>
+
+<div class="col-md-12">
+
+     <h2>Update VFM 3.4 to 3.4.1</h2>
+
+<p>Files to replace:</p>
+<ul>
+  <li><code>/vfm-admin/class.php</code></li>
+  <li><code>/vfm-admin/index.php</code></li>
+  <li><code>/vfm-admin/include/load-js.php</code></li>
+  <li><code>/vfm-admin/js/</code> replace the whole folder</li>
+</ul>
+<p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions if you are upgrading from versions prior to 3.4.0</p>
+
+
+</div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 3.3 to 3.4</h2>
+
+<p>Files to replace:</p>
+<ul>
+  <li><code>/index.php</code></li>
+  <li><code>/vfm-admin/index.php</code></li>
+  <li><code>/vfm-admin/login.php</code></li>
+
+  <li><code>/vfm-admin/admin-panel/</code> replace the whole folder</li>
+  <li><code>/vfm-admin/ajax/</code> replace the whole folder</li>
+  <li><code>/vfm-admin/class.php</code></li>
+  <li><code>/vfm-admin/class/</code> replace the whole folder</li>
+  <li><code>/vfm-admin/include/</code> replace the whole folder</li>
+  <li><code>/vfm-admin/js/</code> replace the whole folder</li>
+</ul>
+
+<p>New file added:</p>
+<ul>
+  <li><code>/vfm-admin/_privacy-info.html</code></li>
+</ul>
+<p>To activate the "Privacy policy" link inside the footer, rename the file <code>_privacy-info.html</code> in <code>privacy-info.html</code> (remove the _underscore) and edit ist contents</p>
+      <p>NEW available options: manage the footer credits under Appearance > Credits</p>
+
+
+      <p>If you have any custom translation, follow the <strong><a href="#translation-update">translation update</a></strong> procedure, otherwise replace all the <code>vfm-admin/translations/</code> folder</p>
+
+      <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions if you are upgrading from versions prior to 3.3</p>
+
+    </div>
+<hr>
+ <div class="col-md-12">
+      <h2>Update VFM 3.2 to 3.3</h2>
+
+<p>Files to replace:</p>
+<ul>
+  <li><code>/vfm-admin/admin-panel/view/</code> replace the whole folder</li>
+  <li><code>/vfm-admin/class/class.php</code></li>
+  <li><code>/vfm-admin/class/class.gatekeeper.php</code></li>
+</ul>
+<p>New file added:</p>
+<ul>
+  <li><code>/vfm-admin/css/bootstrap.min.css.map</code></li>
+</ul>
+      <p>If you have any custom translation, follow the <strong><a href="#translation-update">translation update</a></strong> procedure, otherwise replace all the <code>vfm-admin/translations/</code> folder</p>
+
+      <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions if you are upgrading from versions prior to 3.2</p>
+
+      <p>NEW available options:<br>
+      -"User": upload and "User": create new folders, under Preferences > Permissions</p>
+
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM to version 3.2</h2>
+      <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions</p>
+
+      <p>NOTE: Move your previously uploaded header banner or logo from /vfm-adin/images/ to /vfm-admin/images/uploads/, <br> 
+      or upload it again from the new Appearance panel, and adjust the margins.</p>
+      <p>NEW available options:<br>
+      -"Regenerate Thumbnails" under Preferences > Lists<br>
+      -"Invisible reCAPTCHA" under Preferences > Security > reCAPTCHA<br>
+      -"Navbar Logo", under Appearance<br>
+      -"Layout", "Margin" and "Margin bottom" for the main header, under Appearance</p>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 3.0.2 to 3.1</h2>
+      <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions</p>
+
+      <p>You will find a new option "Audio notification after upload" under Preferences > General settings.</p>
+      <p>Update your general settings from the administration panel after files replacement</p>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 3.0.1 to 3.0.2</h2>
+      <p>Files to replace:</p>
+      <ul>
+        <li>/vfm-admin/admin-panel/view/admin-head.php</li>
+        <li>/vfm-admin/admin-panel/view/dashboard/registration.php</li>
+      </ul>
+      <ul>
+        <li>/vfm-admin/ajax/usr-reg.php</li>
+      </ul>
+      <ul>
+        <li>/vfm-admin/class.php</li>
+      </ul>
+      <ul>
+        <li>/vfm-admin/class/ (replace the whole folder)</li>
+      </ul>
+
+      <ul>
+        <li>/vfm-admin/index.php</li>
+      </ul>
+
+      <ul>
+        <li>/vfm-admin/js/ (replace the whole folder)</li>
+      </ul>
+
+      <ul>
+        <li>/vfm-admin/include/ (replace the whole folder)</li>
+      </ul>
+
+      <ul>
+        <li>/vfm-admin/translations/de.php</li>
+      </ul>
+
+      <ul>
+        <li>/vfm-admin/vfm-style.css</li>
+      </ul>
+      <ul>
+        <li>/vfm-admin/vfm-thumb.php</li>
+      </ul>
+
+    <p>You will find a new option "Keep links valid for" under Preferences > Registration, with its default to 1 day.</p>
+    <p>Update your general settings from the administration panel after files replacement</p>
+  </div>
+
+<hr>
+  <div class="col-md-12">
+    <h2>Update VFM 3.0 to 3.0.1</h2>
+      <p>Files to replace:</p>
+      <ul>
+        <li>/vfm-admin/ajax/get-files.php</li>
+        <li>/vfm-admin/ajax/zip.php</li>
+      </ul>
+      <ul>
+        <li>/vfm-admin/class/class.downloader.php</li>
+        <li>/vfm-admin/class/class.logger.php</li>
+        <li>/vfm-admin/class/class.template.php</li>
+      </ul>
+      <ul>
+        <li>/vfm-admin/js/app.js</li>
+      </ul>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.9 to 3.0</h2>
+      <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions</p>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.9.1 to 2.9.2</h2>
+      <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions</p>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.9.0 to 2.9.1</h2>
+      <p>Files updated: </p>
+      <ul>
+        <li><code>/vfm-admin/chunk.php</code></li>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/login.php</code></li>
+      </ul>
+      <ul>
+        <li><code>vfm-admin/ajax/vfm-del.php</code></li>
+      </ul>
+      <ul>
+        <li><code>vfm-admin/class/</code> replace the whole folder</li>
+      </ul>
+      <ul>
+        <li><code>vfm-admin/include/</code> replace the whole folder</li>
+      </ul>
+      <ul>
+        <li><code>vfm-admin/js/</code> replace the whole folder</li>
+      </ul>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.8 to 2.9</h2>
+        <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions</p>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.7.2 to 2.8</h2>
+      <p>Files updated: </p>
+
+      <ul>
+        <li><code>/vfm-admin/admin-panel/view/</code> <-- replace the whole folder</li>
+        <li><code>/vfm-admin/ajax/</code> <-- replace the whole folder</li>
+        <li><code>/vfm-admin/chunk.php</code></li>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/fonts/vfm-icons.php</code></li>
+        <li><code>/vfm-admin/index.php</code></li>
+        <li><code>/vfm-admin/include/</code> <-- replace the whole folder</li>
+        <li><code>/vfm-admin/js/</code> <-- replace the whole folder</li>
+        <li><code>/vfm-admin/skins/material-...css</code> <-- all the new material skins</li>
+        <li><code>/vfm-admin/vfm-style.css</code></li>
+      </ul>    
+
+      <p>Files removed: </p>
+      <ul>
+          <li><code>/vfm-admin/vfm-del.php</code> <-- the new file is inside /vfm-admin/ajax/</li>
+          <li><code>/vfm-admin/vfm-move.php</code> <-- the new file is inside /vfm-admin/ajax/</li>
+          <li><code>/vfm-admin/vfm-icons.php</code> <-- the new file is inside /vfm-admin/fonts/</li>
+      </ul>
+
+      <p>If you have any custom translation, follow the <strong><a href="#translation-update">translation update</a></strong> procedure, otherwise replace all the <code>vfm-admin/translations/</code> folder</p>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.7.1 to 2.7.2</h2>
+      <p>Files updated: </p>
+      <ul>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/index.php</code></li>
+      </ul>
+      <ul>
+        <li><code>vfm-admin/include/list-files.php</code></li>
+        <li><code>vfm-admin/include/modals.php</code></li>
+      </ul>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.7.0 to 2.7.1</h2>
+      <p>Files updated: </p>
+      <ul>
+        <li><code>/vfm-admin/_unsensitive-users.php</code></li>
+        <li><code>/vfm-admin/class.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/mail/template</code> default html mail template updated</li>
+      </ul>
+      <ul>
+        <li><code>vfm-admin/include/user-redirect.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/vfm-style.css</code></li>
+      </ul>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.6.x to 2.7</h2>
+      <p>Follow the <a href="#generic-upgrade">generic script upgrade</a> procedure</p>
+      
+      <div class="alert alert-danger">
+            <p><strong>IMPORTANT:</strong> There is a new file called <code>_unsensitive-users.php</code> inside <strong>/vfm-admin/</strong>, which will run ony once to update the usernames to case-insensitive.<br>
+            Login to the administration area after the script's upgrade, and save again your settings.</p>
+            <p>If you have some duplicated usernames, like "JohnDoe", "johndoe" and "johnDoe", they will become "JohnDoe" johndoe1" and "johnDoe2"</p>
+            <p>Every user will be notified with an alert after his next login if his username has changed</p>
+      </div>
+      <p>If you have any custom translation, follow the <strong><a href="#translation-update">translation update</a></strong> procedure, otherwise replace all the <code>vfm-admin/translations/</code> folder</p>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.6.2 to 2.6.3</h2>
+      <p>Files updated: </p>
+
+      <ul>
+        <li><code>index.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/admin-panel/</code> replace the whole folder</li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/ajax/</code> replace the whole folder</li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/index.php</code></li>
+      </ul>
+    
+      <ul>
+        <li><code>/vfm-admin/js/</code> replace the whole folder</li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/vfm-downloader.php</code></li>
+        <li><code>/vfm-admin/vfm-style.css</code></li>
+      </ul>
+      <ul>
+        <li><code>vfm-admin/include/</code> replace the whole folder</li>
+      </ul>
+
+      <p>New file added</p>
+      <ul>
+        <li><code>/vfm-admin/class/videostream.php</code></li>
+      </ul>
+
+      <p>If you have any custom translation, follow the <strong><a href="#translation-update">translation update</a></strong> procedure, otherwise replace all the <code>vfm-admin/translations/</code> folder</p>
+    </div>
+<hr>
+  <div class="col-md-12">
+    <h2>Update VFM 2.6.1 to 2.6.2</h2>
+    <p>Files updated: </p>
+    <ul>
+      <li><code>/vfm-admin/chunk.php</code></li>
+      <li><code>/vfm-admin/class.php</code></li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/ajax/usr-reg.php</code></li>
+      <li><code>/vfm-admin/ajax/zip.php</code></li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/include/list-files.php</code></li>
+    </ul>
+  </div>
+<hr>
+  <div class="col-md-12">
+    <h2>Update VFM 2.5 to 2.6.1</h2>
+    <p>Files updated: </p>
+    <ul>
+      <li><code>index.php</code></li>
+      <li><code>vfm-thumb.php</code></li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/class.php</code></li>
+      <li><code>/vfm-admin/index.php</code></li>
+      <li><code>/vfm-admin/login.php</code></li>
+      <li><code>/vfm-admin/vfm-downloader.php</code></li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/admin-panel/</code> replace the whole folder</li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/ajax/</code> replace the whole folder</li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/include/</code> replace the whole folder</li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/js/</code> replace the whole folder</li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/mail/</code> replace all .php files and keep the sub folder /template/</li>
+    </ul>
+  </div>
+<hr>
+  <div class="col-md-12">
+    <h2>Update VFM 2.4.1 to 2.5</h2>
+    <p>Files updated: </p>
+    <ul>
+      <li><code>index.php</code></li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/class.php</code></li>
+      <li><code>/vfm-admin/index.php</code></li>
+      <li><code>/vfm-admin/login.php</code></li>
+      <li><code>/vfm-admin/vfm-icons.php</code></li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/vfm-style.css</code></li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/admin-panel/</code> replace the whole folder</li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/ajax/streamvid.php</code></li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/css/</code> replace the whole folder</li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/fonts/</code> replace the whole folder</li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/include/</code> replace the whole folder</li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/js/</code> replace the whole folder</li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/translations/</code> preserve your custom translation, if any, and replace the others</li>
+    </ul>
+  </div>
+<hr>
+  <div class="col-md-12">
+    <h2>Update VFM 2.4.0 to 2.4.1</h2>
+    <p>Files updated: </p>
+    <ul>
+      <li><code>index.php</code></li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/ajax/sendupnotif.php</code></li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/class.php</code></li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/include/list-folders.php</code></li>
+    </ul>
+    <ul>
+      <li><code>/vfm-admin/js/uploaders.js</code></li>
+    </ul>
+  </div>
+<hr>
+  <div class="col-md-12">
+    <h2>Update VFM 2.3 to 2.4</h2>
+      <p>Files updated: </p>
+      <ul>
+        <li><code>.htaccess</code></li>
+      </ul>
+      <ul>
+        <li><code>index.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/admin-panel/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/ajax/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/css/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/include/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/js/</code> replace the whole folder</li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/index.php</code></li>
+        <li><code>/vfm-admin/login.php</code></li>
+        <li><code>/vfm-admin/vfm-del.php</code></li>
+        <li><code>/vfm-admin/vfm-downloader.php</code></li>
+        <li><code>/vfm-admin/vfm-icons.php</code></li>
+        <li><code>/vfm-admin/vfm-move.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/vfm-style.css</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/translations/</code> preserve your custom translation, if any, and replace the others</li>
+      </ul>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.2.4 to 2.3.0</h2>
+      <p>Files updated: </p>
+      <ul>
+        <li><code>/vfm-admin/admin-panel/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/ajax/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/css/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/include/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/js/</code> replace the whole folder</li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/index.php</code></li>
+        <li><code>/vfm-admin/vfm-del.php</code></li>
+        <li><code>/vfm-admin/vfm-icons.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/vfm-style.css</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/translations/</code> preserve your custom translation, if any</li>
+      </ul>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.2.3 to 2.2.4</h2>
+      <p>Files updated: </p>
+      <ul>
+        <li><code>/vfm-admin/admin-panel/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/ajax/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/css/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/fonts/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/include/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/js/</code> replace the whole folder</li>
+        <li><code>/vfm-admin/skins/</code> all skins updated</li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/index.php</code></li>
+        <li><code>/vfm-admin/vfm-del.php</code></li>
+        <li><code>/vfm-admin/vfm-downloader.php</code></li>
+        <li><code>/vfm-admin/vfm-icons.php</code></li>
+        <li><code>/vfm-admin/vfm-move.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/vfm-style.css</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/translations/</code> preserve your custom translation, if any</li>
+      </ul>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.2.2 to 2.2.3</h2>
+      <p>Files updated: </p>
+      <ul>
+        <li><code>/vfm-admin/admin-panel/</code> replace the whole folder</li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/vfm-downloader.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/include/disk-space.php</code></li>
+        <li><code>/vfm-admin/include/list-files.php</code></li>
+        <li><code>/vfm-admin/include/breadcrumbs.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/skins/</code> all skins updated</li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/vfm-style.css</code></li>
+      </ul>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.2.1 to 2.2.2</h2>
+      <p>Files updated: </p>
+
+      <ul>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/index.php</code></li>
+        <li><code>/vfm-admin/vfm-downloader.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/admin-panel/view/analytics/table.php</code></li>
+      </ul>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.2.0 to 2.2.1</h2>
+      <p>Files updated: </p>
+      <ul>
+        <li><code>/vfm-admin/js/app.js</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/login.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/vfm-style.css</code></li>
+      </ul>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.1.2 to 2.2</h2>
+      <p>Files updated: </p>
+      <ul>
+        <li><code>index.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/admin-panel/</code> replace the whole folder</li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/index.php</code></li>
+        <li><code>/vfm-admin/login.php</code></li>
+        <li><code>/vfm-admin/vfm-move.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/include/list-files.php</code></li>
+        <li><code>/vfm-admin/include/list-folders.php</code></li>
+        <li><code>/vfm-admin/include/login.php</code></li>
+        <li><code>/vfm-admin/include/modals.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/js/app.js</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/skins/</code> all skins updated</li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/vfm-style.css</code></li>
+      </ul>
+      <ul>
+        <li><code>vfm-admin/translations/</code> all translations updated</li>
+      </ul>
+
+      <p>New file added:</p>
+      <ul>
+        <li><code>/vfm-admin/ajax/session.php</code></li>
+      </ul>
+      <p class="lead">Remember to update your general settings from the administration panel after files replacement</p>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.1.1 to 2.1.2</h2>
+      <p>Files replaced: </p>
+
+      <ul>
+        <li><code>/vfm-admin/css/bootstrap-rtl.min.css</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/vfm-style.css</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/include/downloader.php</code></li>
+        <li><code>/vfm-admin/include/modals.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/js/uploaders.js</code></li>
+      </ul>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.1.0 to 2.1.1</h2>
+      <p>Files replaced: </p>
+      <ul>
+        <li><code>index.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/admin-panel/css/admin-skins.css</code></li>
+        <li><code>/vfm-admin/admin-panel/view/users/list-users.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/css/bootstrap-rtl.min.css</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/index.php</code></li>
+        <li><code>/vfm-admin/login.php</code></li>
+        <li><code>/vfm-admin/vfm-style.css</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/include/list-files.php</code></li>
+        <li><code>/vfm-admin/include/list-folders.php</code></li>
+        <li><code>/vfm-admin/include/modals.php</code></li>
+        <li><code>/vfm-admin/include/uploadarea.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/skins/</code> all skins updated</li>
+      </ul>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.0.1 to 2.1.0</h2>
+      <p>Files replaced: </p>
+
+      <ul>
+        <li><code>vfm-thumb.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/admin-panel/view/admin-head.php</code></li>
+        <li><code>/vfm-admin/admin-panel/view/dashboard/general.php</code></li>
+        <li><code>/vfm-admin/admin-panel/view/dashboard/permissions.php</code></li>
+        <li><code>/vfm-admin/admin-panel/view/dashboard/lists.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/class.php</code></li>
+        <li><code>/vfm-admin/login.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/include/head.php</code></li>
+        <li><code>/vfm-admin/include/modals.php</code></li>
+        <li><code>/vfm-admin/include/list-folders.php</code></li>
+        <li><code>/vfm-admin/include/notify-users.php</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/js/app.js</code></li>
+        <li><code>/vfm-admin/js/uploaders.js</code></li>
+      </ul>
+      <ul>
+        <li><code>/vfm-admin/translations/</code> all files updated</li>
+      </ul>
+      <p>New file added: </p>
+      <ul>
+        <li><code>/vfm-admin/js/clipboard.min.js</code></li>
+      </ul>
+
+      <p><strong>NOTE:</strong> After script update return to the administration panel, you will find 3 new options:<br>
+      under <strong>preferences > permissions</strong>:</p>
+      <ul>
+        <li>Administrators can delete folders </li>
+        <li>Administrators can rename folders </li>
+      </ul>
+      under <strong>preferences > lists</strong>:</p>
+      <ul>
+        <li>Counter for folders content</li>
+      </ul>
+
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>Update VFM 2.0 to 2.0.1</h2>
+      <p>files to replace: </p>
+      <ul>
+        <li><code>vfm-admin/admin-panel/view/admin-head.php</code></li>
+      </ul>
+      <ul>
+        <li><code>vfm-admin/class.php</code></li>
+      </ul>
+      <ul>
+        <li><code>vfm-admin/include/list-folders.php</code></li>
+      </ul>
+      <ul>
+        <li><code>vfm-admin/js/app.js</code></li>
+        <li><code>vfm-admin/js/datatables.js</code></li>
+      </ul>
+    </div>
+<hr>
+  <div class="col-md-12">
+    <h2>VFM 1.6.8 to 1.7</h2>
+
+    <p>file added: </p>
+    <ul>
+      <li><code>vfm-admin/vfm-move.php</code></li>
+    </ul>
+
+    <p>files updated: </p>
+
+    <ul>
+      <li><code>vfm-admin/class.php</code></li>
+      <li><code>vfm-admin/index.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/vfm-style.css</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/include/admin-head.php</code></li>
+      <li><code>vfm-admin/include/head.php</code></li>
+      <li><code>vfm-admin/include/list-files.php</code></li>
+      <li><code>vfm-admin/include/modals.php</code></li>
+      <li><code>vfm-admin/include/uploadarea.php</code></li>
+    </ul>
+
+    <ul>
+      <li><code>vfm-admin/template/userpanel.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/js/admin.js</code></li>
+      <li><code>vfm-admin/js/home.js</code></li>
+    </ul>
+
+    <p>Follow the <strong><a href="#translation-update">translation update</a></strong> procedure inside of <strong><a href="#generic-upgrade">Generic script upgrade</a></strong>.</p>
+    <p class="lead">Remember to update your general settings from the administration panel after files replacement</p>
+    
+  </div>
+<hr>
+  <div class="col-md-12">
+    <h2>VFM 1.6.7 to 1.6.8</h2>
+
+    <p>file added: </p>
+    <ul>
+      <li><code>.htaccess</code></li>
+    </ul>
+
+    <p>files updated: </p>
+    <ul>
+      <li><code>index.php</code></li>
+      <li><code>vfm-admin/images/placeholder.jpg</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/class.php</code></li>
+      <li><code>vfm-admin/vfm-downloader.php</code></li>
+      <li><code>vfm-admin/index.php</code></li>
+      <li><code>vfm-admin/login.php</code></li>
+      <li><code>vfm-admin/sendfiles.php</code></li>
+      <li><code>vfm-admin/shorten.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/vfm-style.css</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/include/admin-head.php</code></li>
+      <li><code>vfm-admin/include/downloader.php</code></li>
+      <li><code>vfm-admin/include/footer.php</code></li>
+      <li><code>vfm-admin/include/header.php</code></li>
+      <li><code>vfm-admin/include/list-files.php</code></li>
+      <li><code>vfm-admin/include/list-folders.php</code></li>
+      <li><code>vfm-admin/include/login.php</code></li>
+      <li><code>vfm-admin/include/modals.php</code></li>
+      <li><code>vfm-admin/include/reset.php</code></li>
+      <li><code>vfm-admin/include/uploadarea.php</code></li>
+      <li><code>vfm-admin/include/userpanel.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/js/home.js</code></li>
+      <li><code>vfm-admin/js/statistics.js</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/mail/template-send-files.html</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/skins/vfm-2015.css</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/template/userpanel.php</code></li>
+    </ul>
+
+    <p>Follow the <strong><a href="#translation-update">translation update</a></strong> procedure inside of <strong><a href="#generic-upgrade">Generic script upgrade</a></strong>.</p>
+    <p class="lead">Remember to update your general settings from the administration panel after files replacement</p>
+    
+  </div>
+<hr>
+  <div class="col-md-12">
+    <h2>VFM 1.6.6 to 1.6.7</h2>
+
+    <p>files to add: </p>
+    <ul>
+      <li><code>vfm-admin/shorten.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/mail/template-new-user.html</code></li>
+      <li><code>vfm-admin/mail/template-reset-password.html</code></li>
+      <li><code>vfm-admin/mail/template-send-files.html</code></li>
+    </ul>    
+
+    <p>folder to add: </p>
+    <ul>
+      <li><code>vfm-admin/shorten/</code></li>
+    </ul>
+
+    <p>files to replace: </p>
+
+    <ul>
+      <li><code>vfm-admin/class.php</code></li>
+      <li><code>vfm-admin/vfm-del.php</code></li>
+      <li><code>vfm-admin/vfm-downloader.php</code></li>
+      <li><code>vfm-admin/login.php</code></li>
+      <li><code>vfm-admin/sendfiles.php</code></li>
+      <li><code>vfm-admin/sendpwd.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/vfm-style.css</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/include/admin-head.php</code></li>
+      <li><code>vfm-admin/include/downloader.php</code></li>
+      <li><code>vfm-admin/include/head.php</code></li>
+      <li><code>vfm-admin/include/modals.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/js/home.js</code></li>
+    </ul>
+  </div>
+<hr>
+  <div class="col-md-12">
+    <h2>VFM 1.6.5 to 1.6.6</h2>
+
+    <p>files to add: </p>
+    <ul>
+      <li><code>vfm-admin/include/header.php</code></li>
+      <li><code>vfm-admin/include/footer.php</code></li>
+    </ul>
+
+    <p>folder to add: </p>
+
+    <ul>
+      <li><code>vfm-admin/template/</code></li>
+    </ul>
+    <p>Read the documentation under "customization" for more info about the new template system</p>
+
+    <p>files to replace: </p>
+
+    <ul>
+      <li><code>index.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/class.php</code></li>
+      <li><code>vfm-admin/index.php</code></li>
+      <li><code>vfm-admin/login.php</code></li>
+      <li><code>vfm-admin/vfm-icons.php</code></li>
+      <li><code>vfm-admin/vfm-style.css</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/include/admin-head.php</code></li>
+      <li><code>vfm-admin/include/head.php</code></li>
+      <li><code>vfm-admin/include/login.php</code></li>
+      <li><code>vfm-admin/include/uploadarea.php</code></li>
+      <li><code>vfm-admin/include/userpanel.php</code></li>
+    </ul>
+
+    <ul>
+      <li><code>vfm-admin/js/admin.js</code></li>
+      <li><code>vfm-admin/js/home.js</code></li>
+    </ul>
+
+    <ul>
+      <li><code>vfm-admin/mail/class.phpmailer.php</code></li>
+    </ul>
+
+    <p>All skins updated</p>
+    <p>New skin: <code>vfm-admin/skins/vfm-2015.php</code></p>
+    
+    <p>Follow the <strong><a href="#translation-update">translation update</a></strong> procedure inside of <strong><a href="#generic-upgrade">Generic script upgrade</a></strong>.</p>
+    <p class="lead">Remember to update your general settings from the administration panel after files replacement</p>
+    
+  </div>
+<hr>
+  <div class="col-md-12">
+    <h2>VFM 1.6.4 to 1.6.5</h2>
+    <p>files to replace: </p>
+
+    <ul>
+      <li><code>vfm-admin/class.php</code></li>
+      <li><code>vfm-admin/vfm-downloader.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/include/uploadarea.php</code></li>
+    </ul>
+  </div>
+<hr>
+  <div class="col-md-12">
+    <h2>VFM 1.6.3 to 1.6.4</h2>
+    <p>files to replace: </p>
+
+    <ul>
+      <li><code>vfm-admin/class.php</code></li>
+      <li><code>vfm-admin/vfm-downloader.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/include/uploadarea.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/js/uploaders.js</code></li>
+    </ul>
+  </div>
+<hr>
+  <div class="col-md-12">
+    <h2>VFM 1.6.2 to 1.6.3</h2>
+    <p>files to replace: </p>
+
+    <ul>
+      <li><code>vfm-admin/chunk.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/translations/de.php</code></li>
+      <li><code>vfm-admin/translations/ja.php</code></li>
+    </ul>
+
+  </div>
+
+<hr>
+  <div class="col-md-12">
+    <h2>VFM 1.6.1 to 1.6.2</h2>
+    <p>files to replace: </p>
+
+    <ul>
+      <li><code>vfm-admin/chunk.php</code></li>
+      <li><code>vfm-admin/class.php</code></li>
+      <li><code>vfm-admin/index.php</code></li>
+      <li><code>vfm-admin/sendpwd.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/include/modals.php</code></li>
+      <li><code>vfm-admin/include/list-files.php</code></li>
+    </ul>
+    <p>Follow the <strong><a href="#translation-update">translation update</a></strong> procedure inside of <strong><a href="#generic-upgrade">Generic script upgrade</a></strong>.</p>
+    <p class="lead">Remember to update your general settings from the administration panel after files replacement</p>
+    
+  </div>
+<hr>
+  <div class="col-md-12">
+    <h2>VFM 1.6.0 to 1.6.1</h2>
+    <p>files to replace: </p>
+
+    <ul>
+      <li><code>vfm-admin/vfm-del.php</code></li>
+    </ul>
+  </div>
+
+  <div class="col-md-12">
+    <h2>VFM 1.5.9 to 1.6.0</h2>
+    <p>files to replace: </p>
+
+    <ul>
+      <li><code>vfm-admin/chunk.php</code></li>
+      <li><code>vfm-admin/class.php</code></li>
+      <li><code>vfm-admin/vfm-downloader.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/include/disk-space.php</code></li>
+      <li><code>vfm-admin/include/head.php</code></li>
+      <li><code>vfm-admin/include/login.php</code></li>
+      <li><code>vfm-admin/include/uploadarea.php</code></li>
+    </ul>
+
+    <p>new file added: </p>
+    <ul>
+      <li><code>vfm-admin/remember.php</code></li>
+    </ul>
+
+    <p>new skins: </p>
+    <ul>
+      <li><code>vfm-admin/skins/background-gradient.css</code></li>
+      <li><code>vfm-admin/skins/background-winter.css</code></li>
+      <li><code>vfm-admin/skins/background-wood.css</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/skins/images/gradient.jpg</code></li>
+      <li><code>vfm-admin/skins/images/winter.jpg</code></li>
+      <li><code>vfm-admin/skins/images/wood.jpg</code></li>
+    </ul>
+  </div>
+<hr>
+  <div class="col-md-12">
+    <h2>VFM 1.5.8 to 1.5.9</h2>
+    <p>files to replace: </p>
+    <ul>
+      <li><code>index.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/class.php</code></li>
+      <li><code>vfm-admin/index.php</code></li>
+      <li><code>vfm-admin/vfm-del.php</code></li>
+      <li><code>vfm-admin/vfm-downloader.php</code></li>
+      <li><code>vfm-admin/vfm-style.css</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/include/admin-head.php</code></li>
+      <li><code>vfm-admin/include/downloader.php</code></li>
+      <li><code>vfm-admin/include/uploadarea.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/js/admin.js</code></li>
+    </ul>
+    <p>New files added: </p>
+    <ul>
+      <li><code>vfm-admin/include/user-redirect.php</code></li>
+    </ul>
+    <ul>
+      <li><code>vfm-admin/translations/ja.php</code></li>
+    </ul>
+    <p>Follow the <strong><a href="#translation-update">translation update</a></strong> procedure inside of <strong><a href="#generic-upgrade">Generic script upgrade</a></strong>.</p>
+    <p class="lead">Remember to update your general settings from the administration panel after files replacement</p>
+  </div>
+<hr>
+    <div class="col-md-12">
+      <h2>VFM 1.5.7 to 1.5.8</h2>
+      <p>files to replace: </p>
+      <ul>
+        <li><code>index.php</code></li>
+        <li><code>vfm-admin/class.php</code></li>
+        <li><code>vfm-admin/index.php</code></li>
+        <li><code>vfm-admin/login.php</code></li>
+        <li><code>vfm-admin/include/admin-head.php</code></li>
+      </ul>
+
+      <p>New file added: </p>
+      <ul>
+        <li><code>vfm-admin/css/bootstrap-rtl.min.css</code></li>
+      </ul>
+      <p>Follow the <strong><a href="#translation-update">translation update</a></strong> procedure inside of <strong><a href="#generic-upgrade">Generic script upgrade</a></strong>.</p>
+    </div>
+<hr>
+    <div class="col-md-12">
+      <h2>VFM 1.5.6 to 1.5.7</h2>
+      <p>files to replace: </p>
+      <ul>
+        <li><code>index.php</code></li>
+        <li><code>vfm-admin/vfm-downloader.php</code></li>
+        <li><code>vfm-admin/include/list-files.php</code></li>
+        <li><code>vfm-admin/include/modals.php</code></li>
+        <li><code>vfm-admin/js/soundmanager2.min.js</code></li>
+      </ul>
+    </div>
+<hr>
+      <div class="col-md-12">
+          <h2>VFM 1.5.5 to 1.5.6</h2>
+          <p>files to replace: </p>
+          <ul>
+            <li><code>vfm-admin/class.php</code></li>
+            <li><code>vfm-admin/include/admin-head.php</code></li>
+            <li><code>vfm-admin/js/home.js</code></li>
+          </ul>
+    </div>
+<hr>
+      <div class="col-md-12">
+          <h2>VFM 1.5.4 to 1.5.5</h2>
+          <p>file to replace: </p>
+          <ul>
+            <li><code>vfm-admin/class.php</code></li>
+          </ul>
+    </div>
+<hr>
+      <div class="col-md-12">
+          <h2>VFM 1.5.3 to 1.5.4</h2>
+          <p>files to replace: </p>
+          <ul>
+            <li><code>index.php</code></li>
+          </ul>
+          <ul>
+            <li><code>vfm-admin/class.php</code></li>
+            <li><code>vfm-admin/index.php</code></li>
+            <li><code>vfm-admin/sendfiles.php</code></li>
+            <li><code>vfm-admin/sendpwd.php</code></li>
+            <li><code>vfm-admin/vfm-downloader.php</code></li>
+            <li><code>vfm-admin/vfm-style.css</code></li>
+          </ul>
+          <ul>
+            <li><code>vfm-admin/include/admin-head.php</code></li>
+            <li><code>vfm-admin/include/list-files.php</code></li>
+            <li><code>vfm-admin/include/modals.php</code></li>
+            <li><code>vfm-admin/include/userpanel.php</code></li>
+
+          </ul>
+          <ul>
+            <li><code>vfm-admin/js/admin.js</code></li>
+            <li><code>vfm-admin/js/home.js</code></li>
+            <li><code>vfm-admin/js/statistics.js</code></li>
+
+          </ul>
+
+          <p>New files added: </p>
+          <ul>
+            <li><code>vfm-admin/js/chart.min.js</code></li>
+          </ul>
+          <ul>
+            <li><code>vfm-admin/images/mail-logo.png</code></li>
+          </ul>
+          <p>Follow the <strong><a href="#translation-update">translation update</a></strong> procedure inside of <strong><a href="#generic-upgrade">Generic script upgrade</a></strong>.</p>
+          <p>Note: the new statistic system stores data in .json language instead of .php, so your old logs won't be readed after the upgrade</p>
+          
+      </div>
+<hr>
+      <div class="col-md-12">
+          <h2>VFM 1.5.2 to 1.5.3</h2>
+          <p>files to replace: </p>
+          <ul>
+            <li><code>index.php</code></li>
+          </ul>
+          <ul>
+            <li><code>vfm-admin/class.php</code></li>
+            <li><code>vfm-admin/index.php</code></li>
+            <li><code>vfm-admin/login.php</code></li>
+            <li><code>vfm-admin/vfm-downloader.php</code></li>
+            <li><code>vfm-admin/vfm-style.css</code></li>
+          </ul>
+          <ul>
+            <li><code>vfm-admin/include/admin-head.php</code></li>
+            <li><code>vfm-admin/include/list-files.php</code></li>
+          </ul>
+          <ul>
+            <li><code>vfm-admin/js/home.js</code></li>
+          </ul>
+
+          <p>New files added: </p>
+          <ul>
+            <li><code>vfm-admin/swf/</code> (folder with relative contents)</li>
+            <li><code>vfm-admin/js/jquery-1.11.1.min.js</code></li>
+            <li><code>vfm-admin/js/soundmanager2.min.js</code></li>
+          </ul>
+          <p>Follow the <strong><a href="#translation-update">translation update</a></strong> procedure inside of <strong><a href="#generic-upgrade">Generic script upgrade</a></strong>.</p>
+          <p>Remember to update your general settings from the administration panel after files replacement</p>
+          <hr>
+          <h4>3 New skins available</h4>
+          <p>new files added:</p>
+          <ul>
+            <li><code>vfm-admin/skins/background-sea.css</code></li>
+            <li><code>vfm-admin/skins/background-space.css</code></li>
+            <li><code>vfm-admin/skins/vfm-2014.css</code></li>
+          </ul>
+          <ul>
+            <li><code>vfm-admin/skins/images/</code> (folder)</li>
+          </ul>
+      </div>
+<hr>
+      <div class="col-md-12">
+          <h2>VFM 1.5.1 to 1.5.2</h2>
+          <p>replace the files: </p>
+          <ul>
+            <li><code>vfm-admin/vfm-downloader.php</code></li>
+            <li><code>vfm-admin/vfm-style.css</code></li>
+          </ul>
+      </div>
+<hr>
+      <div class="col-md-12">
+          <h2>VFM 1.5 to 1.5.1</h2>
+          <p>Small bug fix, simply replace the file </p>
+          <ul>
+            <li><code>vfm-admin/vfm-downloader.php</code></li>
+          </ul>
+      </div>
+<hr>
+      <div class="col-md-12">
+          <h2>VFM 1.4 to 1.5</h2>
+          <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions</p>
+      </div>
+<hr>
+      <div class="col-md-12">
+          <h2>VFM 1.3.x to 1.4</h2>
+          <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions</p>
+      </div>
+<hr>
+    <div class="col-md-12 bs-callout bs-callout-danger">
+            <p><strong>IMPORTANT: (only for v.1.3.x to v1.4 migrations, if you have any user with dedicated folder)</strong><br>
+             After the <a href="#generic-upgrade">Generic script upgrade</a>, add the file <code>utilities/update13to14.php</code> to the root of your VFM installation, and load that page<br>
+              e.g: http://www.example.com/vfm/update13to14.php</p>
+      </div>
+<hr>
+      <div class="col-md-12">
+          <h2>VFM 1.3.1 to 1.3.2</h2>
+          <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions</p>
+          <p>New file added:</p>
+          <ul>
+            <li><code>vfm-admin/vfm-del.php</code></li>
+          </ul>
+
+      </div>
+<hr>
+      <div class="col-md-12">
+
+          <h2>VFM 1.3.0 to 1.3.1</h2>
+
+          <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions</p>
+          <p>New files added:</p>
+          <ul>
+            <li><code>vfm-admin/css/ie8fix.css</code></li>
+            <li><code>vfm-admin/js/respond.min.js</code></li>
+            <li><code>vfm-admin/translations/de.php</code></li>
+          </ul>
+
+      </div>
+<hr>
+      <div class="col-md-12">
+
+          <h2>VFM 1.2.5 to 1.3</h2>
+
+          <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions</p>
+          <p>New files added:</p>
+          <ul>
+            <li><code>vfm-admin/token.php</code></li>
+            <li><code>vfm-admin/include/reset.php</code></li>
+          </ul>
+
+      </div>
+<hr>
+    <div class="col-md-12 bs-callout bs-callout-danger">
+            <p><strong>IMPORTANT: (only for v.1.2.x to v1.3 migrations)</strong> after files replacement, add the file <code>utilities/update12to13.php</code> to the root of your VFM installation, and load that page<br>
+              e.g: http://www.example.com/vfm/update12to13.php</p>
+      </div>
+<hr>
+    <div class="col-md-12">
+          <h2>VFM 1.2.4 to 1.2.5</h2>
+          <p>Replace the following files:</p>
+          <ul>
+            <li><code>vfm-admin/index.php</code></li>
+            <li><code>vfm-admin/class.php</code></li>
+            <li><code>vfm-admin/vfm-downloader.php</code></li>
+            <li><code>vfm-admin/vfm-progress.js</code></li>
+            <li><code>vfm-admin/js/form.js</code></li>
+          </ul>
+      <hr>
+          <h2>VFM 1.2.3 to 1.2.4</h2>
+
+          <p>Replace the following files:</p>
+          <ul>
+            <li><code>index.php</code></li>
+            <li><code>vfm-admin/index.php</code></li>
+            <li><code>vfm-admin/vfm-style.css</code></li>
+          </ul>
+          and add the NEW folder:
+          <ul>
+            <li><code>vfm-admin/include</code></li>
+          </ul>
+
+          <hr>
+
+          <h2>VFM 1.2.2 to 1.2.3</h2>
+
+          <p>Just replace the following files:</p>
+          <ul>
+            <li><code>vfm-admin/class.php</code></li>
+            <li><code>vfm-admin/index.php</code></li>
+          </ul>
+
+          <hr>
+
+          <h2>VFM 1.2.1 to 1.2.2</h2>
+
+          <p>Just replace the following files:</p>
+          <ul>
+            <li><code>index.php</code></li>
+            <li><code>vfm-admin/class.php</code></li>
+            <li><code>vfm-admin/index.php</code></li>
+            <li><code>vfm-admin/vfm-downloader.php</code></li>
+            <li><code>vfm-admin/vfm-icons.php</code></li>
+            <li><code>vfm-admin/vfm-style.css</code></li>
+          </ul>
+          <p>and follow the <strong>Translations update</strong> instructions.</p>
+
+          <hr>
+
+          <h2>VFM 1.2.0 to 1.2.1</h2>
+
+          <p>Just replace the following files:</p>
+          <ul>
+            <li><code>index.php</code></li>
+            <li><code>vfm-admin/class.php</code></li>
+            <li><code>vfm-admin/index.php</code></li>
+            <li><code>vfm-admin/login.php</code></li>
+            <li><code>vfm-admin/vfm-style.css</code></li>
+            <li><code>vfm-admin/js/statistics.js</code></li>
+          </ul>
+
+          <hr>
+
+          <h2>VFM 1.1.3 to 1.2.0</h2>
+
+          <p>Follow the <strong><a href="#generic-upgrade">generic script upgrade</a></strong> instructions, and add</p>
+          <ul>
+            <li><code>vfm-admin/js/statistics.js</code></li>
+            <li><code>vfm-admin/log/</code> (folder)</li>
+          </ul>
+
+          <p>Remember to update your general settings from the administration panel after files replacement</p>
+
+        <hr>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
